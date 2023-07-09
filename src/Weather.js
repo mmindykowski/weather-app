@@ -15,6 +15,17 @@ const Weather = () => {
       setWeatherData(res.data);
     });
   };
+
+  const filterWeather = (searchValue) => {
+    console.log(searchValue);
+
+    const filteredWeatherData = weatherData.filter((weatherItem) =>
+      weatherItem.stacja.toLower.includes(searchValue)
+    );
+
+    console.log(filteredWeatherData);
+  };
+
   useEffect(() => {
     getWeatherData();
   }, []);
@@ -22,7 +33,7 @@ const Weather = () => {
   return (
     <div className="weather">
       <h1>Pogodynka</h1>
-      <SearchWeather />
+      <SearchWeather filterWeather={filterWeather} />
       <div className="weatherList">
         {weatherData.map((weatherItem) => {
           return (
