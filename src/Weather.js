@@ -21,6 +21,7 @@ const Weather = () => {
 
   return (
     <div className="weather">
+        <h1>Pogodynka</h1>
         <SearchWeather/>
       <div className="weatherList">
         {weatherData.map((weatherItem) => {
