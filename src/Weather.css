@@ -1,0 +1,9 @@
+.weatherList {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.weatherList .weatherItem {
+    width: 25%;
+    border: 1px solid black;
+}

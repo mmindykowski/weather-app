@@ -19,7 +19,7 @@ const Weather = () => {
   console.log(weatherData);
   return (
     <div className="weather">
-      <div weatherList>
+      <div className="weatherList">
         {weatherData.map((weatherItem) => {
           return <div className="weatherItem" key={weatherItem.id_stacji}>
             <h2>{weatherItem.stacja}</h2>
