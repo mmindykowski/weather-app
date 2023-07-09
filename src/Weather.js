@@ -5,6 +5,7 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 
 import WeatherItem from "./WeatherItem";
+import SearchWeather from "./SearchWeather";
 
 const Weather = () => {
   const [weatherData, setWeatherData] = useState([]);
@@ -20,6 +21,7 @@ const Weather = () => {
 
   return (
     <div className="weather">
+        <SearchWeather/>
       <div className="weatherList">
         {weatherData.map((weatherItem) => {
           return (
