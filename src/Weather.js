@@ -16,16 +16,17 @@ const Weather = () => {
     getWeatherData();
   }, []);
 
-  console.log(weatherData);
   return (
     <div className="weather">
       <div className="weatherList">
         {weatherData.map((weatherItem) => {
-          return <div className="weatherItem" key={weatherItem.id_stacji}>
-            <h2>{weatherItem.stacja}</h2>
-            <p>Temperatura: {weatherItem.temperatura} st. C.</p>
-            <p>Ciśnienie: {weatherItem.cisnienie} hPa</p>
-          </div>;
+          return (
+            <div className="weatherItem" key={weatherItem.id_stacji}>
+              <h2>{weatherItem.stacja}</h2>
+              <p>Temperatura: {weatherItem.temperatura} st. C.</p>
+              <p>Ciśnienie:  {weatherItem.cisnienie ? weatherItem.cisnienie + 'hPa': 'brak danych'}</p>
+            </div>
+          );
         })}
       </div>
     </div>
