@@ -20,10 +20,10 @@ const Weather = () => {
     console.log(searchValue);
 
     const filteredWeatherData = weatherData.filter((weatherItem) =>
-      weatherItem.stacja.toLower.includes(searchValue)
+      weatherItem.stacja.toLowerCase().includes(searchValue.toLowerCase())
     );
 
-    console.log(filteredWeatherData);
+    setWeatherData(filteredWeatherData);
   };
 
   useEffect(() => {
