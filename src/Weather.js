@@ -9,10 +9,12 @@ import SearchWeather from "./SearchWeather";
 
 const Weather = () => {
   const [weatherData, setWeatherData] = useState([]);
+  const [weatherDataAfterFilter, setWeatherDataAfterFilter] = useState([]);
 
   const getWeatherData = () => {
     axios.get("https://danepubliczne.imgw.pl/api/data/synop").then((res) => {
       setWeatherData(res.data);
+      setWeatherDataAfterFilter(res.data);
     });
   };
 
@@ -23,7 +25,7 @@ const Weather = () => {
       weatherItem.stacja.toLowerCase().includes(searchValue.toLowerCase())
     );
 
-    setWeatherData(filteredWeatherData);
+    setWeatherDataAfterFilter(filteredWeatherData);
   };
 
   useEffect(() => {
@@ -35,7 +37,7 @@ const Weather = () => {
       <h1>Pogodynka</h1>
       <SearchWeather filterWeather={filterWeather} />
       <div className="weatherList">
-        {weatherData.map((weatherItem) => {
+        {weatherDataAfterFilter.map((weatherItem) => {
           return (
             <WeatherItem
               weatherItem={weatherItem}
