@@ -4,6 +4,8 @@ import axios from "axios";
 
 import { useEffect, useState } from "react";
 
+import WeatherItem from "./WeatherItem";
+
 const Weather = () => {
   const [weatherData, setWeatherData] = useState([]);
 
@@ -21,11 +23,10 @@ const Weather = () => {
       <div className="weatherList">
         {weatherData.map((weatherItem) => {
           return (
-            <div className="weatherItem" key={weatherItem.id_stacji}>
-              <h2>{weatherItem.stacja}</h2>
-              <p>Temperatura: {weatherItem.temperatura} st. C.</p>
-              <p>Ciśnienie:  {weatherItem.cisnienie ? weatherItem.cisnienie + 'hPa': 'brak danych'}</p>
-            </div>
+            <WeatherItem
+              weatherItem={weatherItem}
+              key={weatherItem.id_stacji}
+            />
           );
         })}
       </div>
