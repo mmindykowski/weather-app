@@ -1,4 +1,4 @@
-import './Weather.css';
+import "./Weather.css";
 
 import axios from "axios";
 
@@ -9,7 +9,7 @@ const Weather = () => {
 
   const getWeatherData = () => {
     axios.get("https://danepubliczne.imgw.pl/api/data/synop").then((res) => {
-      setWeatherData(res.data)
+      setWeatherData(res.data);
     });
   };
   useEffect(() => {
@@ -17,7 +17,19 @@ const Weather = () => {
   }, []);
 
   console.log(weatherData);
-  return <div className="weather">Pogoda</div>;
+  return (
+    <div className="weather">
+      <div weatherList>
+        {weatherData.map((weatherItem) => {
+          return <div className="weatherItem" key={weatherItem.id_stacji}>
+            <h2>{weatherItem.stacja}</h2>
+            <p>Temperatura: {weatherItem.temperatura} st. C.</p>
+            <p>Ciśnienie: {weatherItem.cisnienie} hPa</p>
+          </div>;
+        })}
+      </div>
+    </div>
+  );
 };
 
 export default Weather;
